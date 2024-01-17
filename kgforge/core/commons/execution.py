@@ -100,7 +100,7 @@ def dispatch(data: Union[Resource, List[Resource]], fun_many: Callable,
 def run(fun_one: Callable, fun_many: Optional[Callable], data: Union[Resource, List[Resource]],
         exception: Callable, id_required: bool = False,
         required_synchronized: Optional[bool] = None, execute_actions: bool = False,
-        monitored_status: Optional[str] = None, catch_exceptions: bool = True, **kwargs) -> None:
+        monitored_status: Optional[str] = None, catch_exceptions: bool = False, **kwargs) -> None:
     # POLICY Should be called for operations on resources where recovering from errors is needed.
     if isinstance(data, List) and all(isinstance(x, Resource) for x in data):
         if fun_many is None:
