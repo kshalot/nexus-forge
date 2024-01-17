@@ -116,10 +116,9 @@ def run(
         required_synchronized: Optional[bool] = None,
         execute_actions: bool = False,
         monitored_status: Optional[str] = None,
-        catch_exceptions: bool = True,
+        catch_exceptions: bool = False,
         **kwargs
 ) -> None:
-
     # POLICY Should be called for operations on resources where recovering from errors is needed.
     if isinstance(data, List) and all(isinstance(x, Resource) for x in data):
         if fun_many is None:
